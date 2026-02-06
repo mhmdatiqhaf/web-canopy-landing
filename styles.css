@@ -238,7 +238,8 @@ ol {
    ======================================== */
 .hero {
     position: relative;
-    min-height: 100vh;
+    min-height: auto;
+    padding: 2rem 0 3rem;
     display: flex;
     align-items: center;
     background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
@@ -1620,8 +1621,13 @@ ol {
     }
 
     /* Better Hero Mobile Layout */
+    .hero {
+        min-height: auto;
+        padding: 1rem 0 2rem;
+    }
+
     .hero-content {
-        padding: 2rem 0;
+        padding: 5rem 0 1rem;
         text-align: center;
     }
 
@@ -1825,14 +1831,19 @@ ol {
     }
 
     /* Trust Bar Mobile */
+    .trust-bar {
+        padding: 1rem 0;
+    }
+
     .trust-items {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
     }
 
     .trust-item {
-        font-size: 0.85rem;
+        font-size: 0.75rem;
+        justify-content: center;
     }
 
     /* Back to Top Mobile Position */
