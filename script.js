@@ -162,17 +162,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Counter Animation for Stats
-    const animateCounter = (element, target, duration = 2000) => {
+    const animateCounter = (element, target, duration = 2000, isDecimal = false) => {
         let start = 0;
         const increment = target / (duration / 16);
 
         const updateCounter = () => {
             start += increment;
             if (start < target) {
-                element.textContent = Math.floor(start) + (element.dataset.suffix || '');
+                const displayValue = isDecimal ? start.toFixed(1) : Math.floor(start);
+                element.textContent = displayValue + (element.dataset.suffix || '');
                 requestAnimationFrame(updateCounter);
             } else {
-                element.textContent = target + (element.dataset.suffix || '');
+                const displayValue = isDecimal ? target.toFixed(1) : target;
+                element.textContent = displayValue + (element.dataset.suffix || '');
             }
         };
 
@@ -186,10 +188,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 const statNumber = entry.target.querySelector('.stat-number, .big-number');
                 if (statNumber && !statNumber.classList.contains('animated')) {
                     const text = statNumber.textContent;
-                    const number = parseInt(text.replace(/\D/g, ''));
+                    // Check if it's a decimal number (like 4.9)
+                    const hasDecimal = text.includes('.');
+                    const number = parseFloat(text.replace(/[^\d.]/g, ''));
                     if (number) {
-                        statNumber.dataset.suffix = text.replace(/\d/g, '').trim();
-                        animateCounter(statNumber, number);
+                        statNumber.dataset.suffix = text.replace(/[\d.]/g, '').trim();
+                        animateCounter(statNumber, number, 2000, hasDecimal);
                         statNumber.classList.add('animated');
                     }
                 }
