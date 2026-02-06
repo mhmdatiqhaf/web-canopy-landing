@@ -1671,39 +1671,45 @@ ol {
     }
 
     .hero-stats {
-        flex-direction: column;
-        gap: 0.5rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0;
         justify-content: center;
         width: 100%;
     }
 
     .stat-divider {
-        display: none;
+        display: block;
+        width: 1px;
+        height: 30px;
+        background: rgba(255, 255, 255, 0.3);
+        margin: 0 0.75rem;
     }
 
     .stat {
         flex: none;
-        width: 100%;
-        background: var(--white);
-        padding: 1rem 1.5rem;
-        border-radius: var(--radius-lg);
+        width: auto;
+        background: transparent;
+        padding: 0.5rem 0;
+        border-radius: 0;
         display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: flex-start;
-        gap: 1rem;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        border: 1px solid var(--gray-200);
+        justify-content: center;
+        gap: 0.25rem;
+        box-shadow: none;
+        border: none;
     }
 
     .stat-number {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         color: var(--accent);
         font-weight: 700;
     }
 
     .stat-label {
-        font-size: 0.95rem;
-        color: var(--gray-700);
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.8);
     }
 
     /* Mobile CTA Buttons - Larger Touch Targets */
