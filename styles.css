@@ -1743,6 +1743,39 @@ ol {
     height: 24px;
 }
 
+.back-to-top-text {
+    position: absolute;
+    left: 60px;
+    background: var(--gray-900);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-top-text::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 6px solid transparent;
+    border-right-color: var(--gray-900);
+}
+
+.back-to-top:hover .back-to-top-text {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
 /* ========================================
    LANGUAGE TOGGLE BUTTON
    ======================================== */
@@ -1790,16 +1823,16 @@ ol {
         width: 45px;
         height: 45px;
     }
-    
+
     .nav-right {
         display: none;
     }
-    
-    .nav-links.active ~ .mobile-menu-btn + .nav-right,
+
+    .nav-links.active~.mobile-menu-btn+.nav-right,
     .nav-links.active .nav-right {
         display: flex;
     }
-    
+
     /* Mobile language toggle */
     .lang-toggle-mobile {
         position: fixed;
