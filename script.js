@@ -108,9 +108,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentScroll = window.pageYOffset;
 
         if (currentScroll > 100) {
-            navbar.style.background = 'rgba(26, 71, 42, 0.95)';
+            navbar.style.background = 'rgba(26, 26, 26, 0.95)';
             navbar.style.backdropFilter = 'blur(10px)';
-            navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+            navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.2)';
         } else {
             navbar.style.background = 'transparent';
             navbar.style.backdropFilter = 'none';

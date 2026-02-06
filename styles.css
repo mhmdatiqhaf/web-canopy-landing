@@ -4,13 +4,18 @@
    ======================================== */
 
 :root {
-    /* Premium Color Palette */
-    --primary: #1a472a;
-    --primary-light: #2d6a4f;
-    --primary-dark: #0d2818;
-    --accent: #d4af37;
-    --accent-light: #f0d77c;
-    --accent-dark: #a68a2e;
+    /* Modern Luxury Color Palette */
+    --primary: #1A1A1A;
+    /* Deep Charcoal - Premium dark */
+    --primary-light: #2d2d2d;
+    --primary-dark: #0a0a0a;
+    --accent: #D4AF37;
+    /* Champagne Gold - Luxury highlight */
+    --accent-light: #e8c84a;
+    --accent-dark: #b8962e;
+    --cta-green: #22C55E;
+    /* Action Green - CTA buttons */
+    --cta-green-dark: #16a34a;
 
     /* Neutrals */
     --white: #ffffff;
@@ -356,14 +361,16 @@ ol {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-    color: var(--gray-900);
-    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+    background: linear-gradient(135deg, var(--cta-green) 0%, var(--cta-green-dark) 100%);
+    color: var(--white);
+    box-shadow: 0 4px 20px rgba(34, 197, 94, 0.3);
+    font-weight: 600;
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 8px 30px rgba(34, 197, 94, 0.5);
+    background: linear-gradient(135deg, var(--cta-green-dark) 0%, var(--cta-green) 100%);
 }
 
 .btn-primary svg {
@@ -1638,21 +1645,26 @@ ol {
     .stat {
         flex: none;
         width: 100%;
-        background: rgba(255, 255, 255, 0.1);
-        padding: 0.75rem 1rem;
-        border-radius: var(--radius-md);
+        background: var(--white);
+        padding: 1rem 1.5rem;
+        border-radius: var(--radius-lg);
         display: flex;
         align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
+        justify-content: flex-start;
+        gap: 1rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border: 1px solid var(--gray-200);
     }
 
     .stat-number {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
+        color: var(--accent);
+        font-weight: 700;
     }
 
     .stat-label {
-        font-size: 0.85rem;
+        font-size: 0.95rem;
+        color: var(--gray-700);
     }
 
     /* Mobile CTA Buttons - Larger Touch Targets */
@@ -1988,7 +2000,7 @@ ol {
         display: flex;
         align-items: center;
         gap: 0.4rem;
-        background: rgba(26, 71, 42, 0.9);
+        background: rgba(26, 26, 26, 0.9);
         border: 1px solid rgba(255, 255, 255, 0.3);
         color: var(--white);
         padding: 0.5rem 0.75rem;
@@ -1998,4 +2010,140 @@ ol {
         font-weight: 600;
         backdrop-filter: blur(10px);
     }
+}
+
+/* ========================================
+   MICRO-INTERACTIONS & ANIMATIONS
+   ======================================== */
+
+/* Fade-in animation for scroll reveal */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 4px 20px rgba(34, 197, 94, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 4px 30px rgba(34, 197, 94, 0.6);
+    }
+}
+
+/* Apply to sections */
+.section-header,
+.service-card,
+.gallery-item,
+.testimonial-card,
+.package-card,
+.feature-item {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Staggered animation delays */
+.service-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.service-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.service-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.service-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.gallery-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.gallery-item:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.gallery-item:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.gallery-item:nth-child(4) {
+    animation-delay: 0.25s;
+}
+
+.gallery-item:nth-child(5) {
+    animation-delay: 0.3s;
+}
+
+.package-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.package-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.package-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+/* CTA Pulse Animation */
+.btn-primary {
+    animation: pulse 2s infinite;
+}
+
+.btn-primary:hover {
+    animation: none;
+}
+
+/* Card Hover Effects - Enhanced */
+.service-card,
+.package-card,
+.testimonial-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover,
+.package-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Gallery Hover Overlay Animation */
+.gallery-item .gallery-overlay {
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+/* Smooth Link Underline Animation */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
