@@ -948,6 +948,7 @@ ol {
     position: relative;
     transition: var(--transition-base);
     color: var(--white);
+    border: 2px solid var(--accent);
 }
 
 .package-card:hover {
