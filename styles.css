@@ -2055,9 +2055,7 @@ ol {
         height: 45px;
     }
 
-    .nav-right {
-        display: none;
-    }
+    /* .nav-right removed display:none to allow language toggle visibility */
 
     .nav-links.active~.mobile-menu-btn+.nav-right,
     .nav-links.active .nav-right {
