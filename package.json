@@ -1,0 +1,13 @@
+{
+    "name": "kimi-executor",
+    "version": "1.0.0",
+    "description": "Execute implementation plans with Kimi API",
+    "main": "execute-with-kimi.js",
+    "scripts": {
+        "execute": "node execute-with-kimi.js"
+    },
+    "dependencies": {
+        "axios": "^1.6.0",
+        "dotenv": "^16.3.1"
+    }
+}
